@@ -221,3 +221,15 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Données personnelles et fichiers Excel
+*.xlsx
+*.xls
+
+# Identifiants et configuration privée
+.env
+.env.*
+.streamlit/secrets.toml
+
+# Fichiers système Mac
+.DS_Store
