@@ -74,9 +74,16 @@ CSS = """
   color:#D95D00 !important;
   border-top:3px solid #D95D00 !important;
 }
-/* Le texte suit la couleur de l'onglet */
-.stApp [data-testid="stTabs"] [data-baseweb="tab"] p {
-  color:inherit !important;
+/* Texte des onglets non sélectionnés */
+.stApp [data-testid="stTabs"] [data-baseweb="tab"][aria-selected="false"] p {
+    color: #315246 !important;
+    opacity: 1 !important;
+}
+
+/* Texte de l'onglet sélectionné */
+.stApp [data-testid="stTabs"] [data-baseweb="tab"][aria-selected="true"] p {
+    color: #D95D00 !important;
+    opacity: 1 !important;
 }
 .stApp [data-testid="stTabs"] [data-baseweb="tab-highlight"] {
   background:transparent;
