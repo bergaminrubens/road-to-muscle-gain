@@ -58,15 +58,29 @@ CSS = """
   gap:0; display:flex !important; visibility:visible !important;
   position:relative; z-index:2; min-height:40px; margin-bottom:4px;
 }
+/* Apparence des onglets */
 .stApp [data-testid="stTabs"] [data-baseweb="tab"] {
-  background:#eee; border:1px solid #c5c5c5; color:#666;
-  padding:.42rem .8rem; border-radius:0; font-family:Arial,sans-serif; font-size:15px;
+  background:#eee;
+  border:1px solid #c5c5c5;
+  color:#315246 !important;
+  padding:.42rem .8rem;
+  border-radius:0;
+  font-family:Arial,sans-serif;
+  font-size:15px;
 }
-.stApp [data-testid="stTabs"] [aria-selected="true"] {
-  background:#fff !important; color:#161616 !important;
-  border-top:3px solid #2086eb !important;
+/* Onglet sélectionné */
+.stApp [data-testid="stTabs"] [data-baseweb="tab"][aria-selected="true"] {
+  background:#fff !important;
+  color:#D95D00 !important;
+  border-top:3px solid #D95D00 !important;
 }
-.stApp [data-testid="stTabs"] [data-baseweb="tab-highlight"] { background:transparent; }
+/* Le texte suit la couleur de l'onglet */
+.stApp [data-testid="stTabs"] [data-baseweb="tab"] p {
+  color:inherit !important;
+}
+.stApp [data-testid="stTabs"] [data-baseweb="tab-highlight"] {
+  background:transparent;
+}
 /* Période : une ligne compacte de quatre boutons répartis sur la largeur. */
 [class*="st-key-periode_"] {
   width:65.2%; max-width:100%; margin:8px auto 0 auto;
