@@ -47,7 +47,7 @@ CSS = """
 :root { --vert:#B5E222; --fond:#142D24; --orange:#D95D00; --espacement:12px; }
 .stApp { background:#fff; color:#242d29; font-family:Arial,Helvetica,sans-serif; }
 /* L'en-tête Streamlit est fixe : laisser assez de place aux 4 onglets ! */
-.stApp .block-container { max-width:1220px; padding-top:4.2rem !important; padding-bottom:4rem; }
+.stApp .block-container { max-width:100% !important; padding-top:3.5rem !important; padding-left:3.5rem !important; padding-right:3.5rem !important; padding-bottom:3.5rem; }
 .stApp h1 { color:#D95D00 !important; font-size:clamp(2rem,3.4vw,3.1rem);
   font-weight:700; letter-spacing:-.03em; margin-top:0 !important; }
 .stApp h2 { color:#D95D00 !important; font-size:clamp(1.65rem,2.5vw,2.35rem);
