@@ -134,6 +134,16 @@ CSS = """
 [class*="st-key-courbe_"][class*="_reps_prevues_"] button::before {content:'┄';color:#C3E74E;}
 /* Grille poids : les 3 cartes ont exactement la hauteur du graphique et
    les 12 px de gouttière sont identiques horizontalement/verticalement. */
+/* Boutons de courbes désactivés */
+.stApp [class*="st-key-courbe_"][class*="_inactive"] button,
+.stApp [class*="st-key-courbe_"][class*="_inactive"] button:hover {
+    background: transparent !important;
+    color: #242d29 !important;
+}
+/* Texte foncé quand le bouton est désactivé */
+.stApp [class*="st-key-courbe_"][class*="_inactive"] button p {
+    color: #242d29 !important;
+}
 .poids-grille { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,2.7fr);
   gap:var(--espacement); width:100%; align-items:stretch; }
 .poids-cartes { display:grid; grid-template-rows:repeat(3,minmax(0,1fr));
