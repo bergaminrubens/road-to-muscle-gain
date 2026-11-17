@@ -58,35 +58,36 @@ CSS = """
   gap:0; display:flex !important; visibility:visible !important;
   position:relative; z-index:2; min-height:40px; margin-bottom:4px;
 }
-/* Apparence des onglets */
-.stApp [data-testid="stTabs"] [data-baseweb="tab"] {
-  background:#eee;
-  border:1px solid #c5c5c5;
-  color:#315246 !important;
-  padding:.42rem .8rem;
-  border-radius:0;
-  font-family:Arial,sans-serif;
-  font-size:15px;
-}
-/* Onglet sélectionné */
-.stApp [data-testid="stTabs"] [data-baseweb="tab"][aria-selected="true"] {
-  background:#fff !important;
-  color:#D95D00 !important;
-  border-top:3px solid #D95D00 !important;
-}
-/* Texte des onglets non sélectionnés */
-.stApp [data-testid="stTabs"] [data-baseweb="tab"][aria-selected="false"] p {
-    color: #315246 !important;
+/* Apparence des onglets, indépendante du thème Streamlit */
+.stApp [data-testid="stTabs"] button[data-baseweb="tab"] {
+    background: #eee !important;
+    border: 1px solid #c5c5c5;
+    padding: .42rem .8rem;
+    border-radius: 0;
+    font-family: Arial, sans-serif;
+    font-size: 15px;
     opacity: 1 !important;
 }
-
-/* Texte de l'onglet sélectionné */
-.stApp [data-testid="stTabs"] [data-baseweb="tab"][aria-selected="true"] p {
+/* Onglets inactifs : vert foncé */
+.stApp [data-testid="stTabs"] button[data-baseweb="tab"][aria-selected="false"],
+.stApp [data-testid="stTabs"] button[data-baseweb="tab"][aria-selected="false"] * {
+    color: #315246 !important;
+    -webkit-text-fill-color: #315246 !important;
+    opacity: 1 !important;
+}
+/* Onglet actif : orange */
+.stApp [data-testid="stTabs"] button[data-baseweb="tab"][aria-selected="true"] {
+    background: #fff !important;
+    border-top: 3px solid #D95D00 !important;
+}
+.stApp [data-testid="stTabs"] button[data-baseweb="tab"][aria-selected="true"],
+.stApp [data-testid="stTabs"] button[data-baseweb="tab"][aria-selected="true"] * {
     color: #D95D00 !important;
+    -webkit-text-fill-color: #D95D00 !important;
     opacity: 1 !important;
 }
 .stApp [data-testid="stTabs"] [data-baseweb="tab-highlight"] {
-  background:transparent;
+    background: transparent;
 }
 /* Période : une ligne compacte de quatre boutons répartis sur la largeur. */
 [class*="st-key-periode_"] {
