@@ -53,41 +53,45 @@ CSS = """
 .stApp h2 { color:#D95D00 !important; font-size:clamp(1.65rem,2.5vw,2.35rem);
   font-weight:700; letter-spacing:-.03em; }
 .stApp [data-testid="stVerticalBlock"] { gap:var(--espacement); }
-/* Les onglets doivent rester visibles sous la barre supérieure, jamais masqués. */
-.stApp [data-testid="stTabs"] [data-baseweb="tab-list"] {
-  gap:0; display:flex !important; visibility:visible !important;
-  position:relative; z-index:2; min-height:40px; margin-bottom:4px;
+/* Barre des onglets */
+.stApp [role="tablist"] {
+    gap: 0 !important;
+    display: flex !important;
+    visibility: visible !important;
+    position: relative;
+    z-index: 2;
+    min-height: 40px;
+    margin-bottom: 4px;
 }
-/* Apparence des onglets, indépendante du thème Streamlit */
-.stApp [data-testid="stTabs"] button[data-baseweb="tab"] {
-    background: #eee !important;
-    border: 1px solid #c5c5c5;
-    padding: .42rem .8rem;
-    border-radius: 0;
-    font-family: Arial, sans-serif;
-    font-size: 15px;
-    opacity: 1 !important;
-}
-/* Onglets inactifs : vert foncé */
-.stApp [data-testid="stTabs"] button[data-baseweb="tab"][aria-selected="false"],
-.stApp [data-testid="stTabs"] button[data-baseweb="tab"][aria-selected="false"] * {
+/* Tous les onglets : texte vert foncé */
+.stApp [role="tablist"] [role="tab"],
+.stApp [role="tablist"] [role="tab"] * {
     color: #315246 !important;
     -webkit-text-fill-color: #315246 !important;
     opacity: 1 !important;
 }
-/* Onglet actif : orange */
-.stApp [data-testid="stTabs"] button[data-baseweb="tab"][aria-selected="true"] {
-    background: #fff !important;
-    border-top: 3px solid #D95D00 !important;
+/* Apparence des onglets */
+.stApp [role="tablist"] [role="tab"] {
+    background: #EEEEEE !important;
+    border: 1px solid #C5C5C5 !important;
+    padding: .42rem .8rem !important;
+    border-radius: 0 !important;
+    font-family: Arial, sans-serif !important;
+    font-size: 15px !important;
 }
-.stApp [data-testid="stTabs"] button[data-baseweb="tab"][aria-selected="true"],
-.stApp [data-testid="stTabs"] button[data-baseweb="tab"][aria-selected="true"] * {
+/* Onglet sélectionné : orange */
+.stApp [role="tablist"] [role="tab"]:is([data-selected], [aria-selected="true"]),
+.stApp [role="tablist"] [role="tab"]:is([data-selected], [aria-selected="true"]) * {
     color: #D95D00 !important;
     -webkit-text-fill-color: #D95D00 !important;
-    opacity: 1 !important;
 }
-.stApp [data-testid="stTabs"] [data-baseweb="tab-highlight"] {
-    background: transparent;
+/* Fond de l'onglet actif */
+.stApp [role="tablist"] [role="tab"]:is([data-selected], [aria-selected="true"]) {
+    background: #FFFFFF !important;
+}
+/* Soulignement orange de l'onglet actif */
+.stApp [role="tablist"] [role="tab"][data-selected] .react-aria-SelectionIndicator {
+    background-color: #D95D00 !important;
 }
 /* Période : une ligne compacte de quatre boutons répartis sur la largeur. */
 [class*="st-key-periode_"] {
