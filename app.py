@@ -468,14 +468,41 @@ def figure_frequences(faits, attendus, type_par_exercice):
     ax.set_xlim(0, x_stats + 5)
     for y in (5.5, 11.5):
         ax.axhline(y=y, color=GRIS, linewidth=.6, alpha=.2)
-    for groupe, label, y in (("C", "Jambes", 2.5), ("A", "Dos/bras", 8.5), ("B", "Pecs/épaules", 14.5)):
-        faits_groupe = sum(n for exo, n in faits.items() if type_par_exercice.get(exo) == groupe)
-        prevus_groupe = sum(n for exo, n in attendus.items() if type_par_exercice.get(exo) == groupe)
+
+    for groupe, label, y in (
+        ("C", "Jambes", 2.5),
+        ("A", "Dos/bras", 8.5),
+        ("B", "Pecs/épaules", 14.5)
+    ):
+        faits_groupe = sum(
+            n for exo, n in faits.items()
+            if type_par_exercice.get(exo) == groupe
+        )
+        prevus_groupe = sum(
+            n for exo, n in attendus.items()
+            if type_par_exercice.get(exo) == groupe
+        )
         taux = 100 * faits_groupe / prevus_groupe if prevus_groupe else 0
-        ax.text(maxi + .8, y, f"{label} - {taux:.1f} %", color=TEXTE, fontsize=8, fontweight="bold")
-        ax.add_patch(Rectangle((maxi + .8, y - .5), 1.5, .12, facecolor="#315246", edgecolor="none"))
-        ax.add_patch(Rectangle((maxi + .8, y - .5), 1.5 * min(taux / 100, 1), .12,
-                               facecolor="#87f5cd", edgecolor="none"))
+    
+        ax.text(
+            x_stats, y,
+            f"{label} - {taux:.1f} %",
+            color=TEXTE,
+            fontsize=8,
+            fontweight="bold"
+        )
+    
+        ax.add_patch(Rectangle(
+            (x_stats, y - .5), 1.5, .12,
+            facecolor="#315246", edgecolor="none"
+        ))
+    
+        ax.add_patch(Rectangle(
+            (x_stats, y - .5),
+            1.5 * min(taux / 100, 1), .12,
+            facecolor="#87f5cd", edgecolor="none"
+        ))
+
     ax.legend(handles=[Patch(facecolor=GRIS, alpha=.2, label="Exercices prévus"),
                        Patch(facecolor=ORANGE, label="Exercices faits")],
               fontsize=8, handlelength=1, handleheight=.7, frameon=False, labelcolor=TEXTE)
