@@ -25,7 +25,7 @@ import pandas as pd
 import requests
 import streamlit as st
 
-# -----------------------------------------------------------------------------
+# ----------------------------------------------------------------------------- 
 # Config et palette identiques au notebook
 # -----------------------------------------------------------------------------
 FILE_ID = "1_IOloxAt_UsgvdDHAr9JlmtCu-NE1sGY"
