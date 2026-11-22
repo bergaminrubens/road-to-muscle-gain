@@ -463,7 +463,7 @@ def figure_frequences(faits, attendus, type_par_exercice):
     maxi = max(faits.values())
     ax.set_xlabel("Fréquences", color=TEXTE)
     ax.bar_label(barres, padding=10, color=TEXTE, fontsize=8)
-    ax.set_xlim(0, maxi + 3)
+    ax.set_xlim(0, maxi + 5)
     for y in (5.5, 11.5):
         ax.axhline(y=y, color=GRIS, linewidth=.6, alpha=.2)
     for groupe, label, y in (("C", "Jambes", 2.5), ("A", "Dos/bras", 8.5), ("B", "Pecs/épaules", 14.5)):
