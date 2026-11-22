@@ -237,9 +237,6 @@ def _lire_classeur_distant(contenu: bytes) -> dict[str, pd.DataFrame]:
 
 
 def charger_feuilles() -> dict[str, pd.DataFrame]:
-    chemin = Path(__file__).resolve().parent / EXCEL_NAME
-    if chemin.exists():
-        return _lire_classeur_local(str(chemin), chemin.stat().st_mtime_ns)
     return _lire_classeur_distant(_telecharger_excel())
 
 
